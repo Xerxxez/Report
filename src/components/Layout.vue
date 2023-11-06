@@ -4,6 +4,7 @@ import Navbar from './Navbar.vue';
 import QuillEditor from './QuillEditor.vue'
 import InputForm from './InputForm.vue'
 import InputDatepicker from './InputDatepicker.vue'
+import InputFile from './InputFile.vue';    
 
 export default {
 name: "Layout",
@@ -11,7 +12,8 @@ components: {
     Navbar,
     QuillEditor,
     InputForm,
-    InputDatepicker
+    InputDatepicker,
+    InputFile
 }, 
     data() {
     return {
@@ -26,7 +28,7 @@ components: {
     <Navbar/>
 
     <div class="container-fluid mt-5">
-    <div class="row">
+    <div class="row mt-5">
       <!-- Left Side (Stackable Divs) -->
       <div class="col-md-3">
         <div class="stackable-div" v-for="(item, index) in stackableItems" :key="index">
@@ -34,6 +36,7 @@ components: {
         </div>
       </div>
       <div class="col-md-9">
+        
         <InputDatepicker label="Berichte von" inputId="ReportDate"/>
         <InputForm
       label="Bericht über"
@@ -42,6 +45,8 @@ components: {
     />
       <!-- Main Component (Text Editor) -->
       <QuillEditor/>
+      
+      <InputFile/>
       </div>
     </div>
   </div>
