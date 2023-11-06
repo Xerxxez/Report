@@ -3,12 +3,15 @@
 import Navbar from './Navbar.vue';
 import QuillEditor from './QuillEditor.vue'
 import InputForm from './InputForm.vue'
+import InputDatepicker from './InputDatepicker.vue'
+
 export default {
 name: "Layout",
 components: {
     Navbar,
     QuillEditor,
     InputForm,
+    InputDatepicker
 }, 
     data() {
     return {
@@ -31,9 +34,10 @@ components: {
         </div>
       </div>
       <div class="col-md-9">
+        <InputDatepicker label="Berichte von" inputId="ReportDate"/>
         <InputForm
       label="Bericht über"
-      inputId="customInputId"
+      inputId="ReportSubject"
       inputPlaceholder="Bericht über"
     />
       <!-- Main Component (Text Editor) -->
