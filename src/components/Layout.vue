@@ -2,11 +2,13 @@
 <script lang="ts">
 import Navbar from './Navbar.vue';
 import QuillEditor from './QuillEditor.vue'
+import InputForm from './InputForm.vue'
 export default {
 name: "Layout",
 components: {
     Navbar,
-    QuillEditor
+    QuillEditor,
+    InputForm,
 }, 
     data() {
     return {
@@ -28,9 +30,13 @@ components: {
           {{ item }}
         </div>
       </div>
-
-      <!-- Main Component (Text Editor) -->
       <div class="col-md-9">
+        <InputForm
+      label="Bericht über"
+      inputId="customInputId"
+      inputPlaceholder="Bericht über"
+    />
+      <!-- Main Component (Text Editor) -->
       <QuillEditor/>
       </div>
     </div>
