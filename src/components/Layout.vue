@@ -1,5 +1,6 @@
 
 <script lang="ts">
+import NavBox from './NavBox.vue';
 import Navbar from './Navbar.vue';
 import QuillEditor from './QuillEditor.vue'
 import InputForm from './InputForm.vue'
@@ -13,13 +14,29 @@ components: {
     QuillEditor,
     InputForm,
     InputDatepicker,
-    InputFile
+    InputFile,
+    NavBox
 }, 
-    data() {
+data() {
     return {
-      stackableItems: ['Admin', 'x', 'x'], // Replace with your actual data
+      navBoxes: [
+        {
+          caption: 'Admin',
+          items: [
+            { text: 'Adminstuff1', link: '#' },
+            { text: 'Adminstuff2', link: '#' },
+          ],
+        },
+        {
+          caption: 'Navigation',
+          items: [
+            { text: 'Nav 1', link: '#' },
+            { text: 'Nav 2', link: '#' },
+          ],
+        },
+      ],
     };
-},
+  },
 };
 
 </script>
@@ -31,9 +48,12 @@ components: {
     <div class="row mt-5">
       <!-- Left Side (Stackable Divs) -->
       <div class="col-md-3">
-        <div class="stackable-div" v-for="(item, index) in stackableItems" :key="index">
-          {{ item }}
-        </div>
+        <NavBox
+          v-for="(item, index) in navBoxes"
+          :key="index"
+          :caption="item.caption"
+          :items="item.items"
+        />
       </div>
       <div class="col-md-9">
         
